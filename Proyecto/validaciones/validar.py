@@ -7,7 +7,7 @@ def cadena_no_vacia(entrada : str) -> bool:
     else:
         raise Exception()
     
-def opcion_correcta(entrada :str )-> bool:
+def opcion_correcta(entrada :int)-> bool:
     """Recibe un String y valida que este entre las opciones del menú
     Devuelve True o False y lanza una excepción"""
 

@@ -1,6 +1,5 @@
 from typing import List
-from validaciones.validar import cadena_no_vacia
-from validaciones.validar import opcion_correcta
+import validaciones as val
 def mostrarMenu (titulo : str, opciones: List[str])-> None: # con la flecha y el none le indicamos que la funcion no retorna nada
     
     opcion = 0
@@ -16,9 +15,9 @@ def mostrarMenu (titulo : str, opciones: List[str])-> None: # con la flecha y el
 
             entrada = input("Ingrese el número de la opción deseada: ")
 
-            if cadena_no_vacia(entrada) and entrada.isdigit():
+            if val.cadena_no_vacia(entrada) and entrada.isdigit():
                 opcion = int(entrada)
-                if opcion_correcta(opcion):
+                if val.opcion_correcta(opcion):
                     if opcion == 5:
                         print("Saliendo del menú.")
                         break
