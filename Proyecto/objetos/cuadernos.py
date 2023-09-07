@@ -1,6 +1,8 @@
 import dataclasses
 
-from Proyecto.objetos.producto import Producto
+from objetos.producto import Producto
+
+
 
 @dataclasses(order=True)
 class Cuaderno(Producto):

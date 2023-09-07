@@ -1,6 +1,9 @@
 from dataclasses import dataclass
 
-from Proyecto.objetos.producto import Producto
+from objetos.producto import Producto
+
+
+
 @dataclass(order=True)
 class Libro(Producto):
     _Isbn: str

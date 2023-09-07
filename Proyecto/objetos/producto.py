@@ -1,19 +1,21 @@
+from ast import List
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, ClassVar
 
 @dataclass(order=True)
 class Producto:
     sorted_index: Any = field(init=False, repr=False)
     _impuesto: float
-    _lista_productos: list = []
+    _lista_productos: List['Producto'] = []
     _codigo: int
     _nombre: str
     _precio: float
     _stock: int
 
     def __post_init__(self):
-        self.sorted_index = self._precio
-        Producto._lista_productos.append(self)
+        Producto.lista_productos.append(self)
+        # hago el calculo del precio con impuesto y se lo seteo al producto cuando lo creo
+        self._precio = self._precio + (self._precio * self._impuesto)
 
     @property
     def impuesto(self):
@@ -41,7 +43,7 @@ class Producto:
 
     @precio.setter
     def precio(self, precio):
-        self._precio = precio
+        self._precio = precio (precio * self._impuesto)
 
     @property
     def stock(self):
@@ -50,13 +52,18 @@ class Producto:
     @stock.setter
     def stock(self, stock):
         self._stock = stock
+
+
     @classmethod
-    def calcular_precio_con_impuesto(cls):
-        return cls.precio + (cls.precio * cls.impuesto)
+    def mostrar_productos_ordenados(cls):
+        productos_ordenados = sorted(cls.lista_productos, key=lambda x: x.precio)
+        for producto in productos_ordenados:
+            print(f"Código: {producto.codigo}, Nombre: {producto.nombre}, Precio: ${producto.precio}, Stock: {producto.stock}")
+
 
     @classmethod
     def buscar_producto(cls, codigo):
-        """busca un producto en la lista de productos de la librería por 
+        """busca un producto en la lista de por 
         su código y devuelve el producto si lo encuentra, o None si no lo encuentra"""
         for producto in cls.lista_productos:
             if producto.codigo == codigo:
