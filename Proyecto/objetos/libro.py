@@ -4,14 +4,12 @@ from objetos.producto import Producto
 
 
 
-@dataclass(order=True)
+@dataclass (order=True)
 class Libro(Producto):
     _Isbn: str
     _autor: str
 
-    def __post_init__(self):
-        super().__post_init__()
-
+ 
     @property
     def Isbn(self):
         return self._Isbn
@@ -27,5 +25,8 @@ class Libro(Producto):
     @autor.setter
     def autor(self, value):
         self._autor = value
+
+
+
 
 

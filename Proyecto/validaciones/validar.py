@@ -11,8 +11,7 @@ def opcion_correcta(entrada :int)-> bool:
     """Recibe un String y valida que este entre las opciones del menú
     Devuelve True o False y lanza una excepción"""
 
-    if 1 <= entrada <= 5:
+    if 1 <= entrada <= 6:
         return True
     else:
         raise Exception()
-

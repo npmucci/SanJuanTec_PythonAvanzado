@@ -1,19 +1,16 @@
-import dataclasses
+from dataclasses import dataclass
 
 from objetos.producto import Producto
 
 
 
-@dataclasses(order=True)
+@dataclass(order=True)
 class Cuaderno(Producto):
-    __marca: str
+    _marca: str
 
     def __post_init__(self):
         super().__post_init__()
 
     @property
     def marca(self):
-        return self.__marca
-
-  
-    
+        return self._marca
