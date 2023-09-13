@@ -10,7 +10,7 @@ def mostrar_menu():
         print("2. Agregar un nuevo libro.")
         print("3. Agregar un nuevo cuaderno.")
         print("4. Buscar un producto")
-        print("5. Vender un cuaderno")
+        print("5. Vender un producto")
         print("6. Salir")
         opcion = input("Seleccione una opción: ")
 
@@ -28,19 +28,21 @@ def mostrar_menu():
                         # Agregar un nuevo libro
                         impuesto = float(input("Ingrese el impuesto: "))
                         isbn = input("Ingrese el ISBN del libro: ")
+                        nombre = input("Ingrese el Titulo del libro")
                         autor = input("Ingrese el autor del libro: ")
                         precio = float(input("Ingrese el precio del libro: "))
                         stock = int(input("Ingrese el stock del libro: "))
-                        nuevo_libro = Libro(impuesto, len(Producto._lista_productos) + 1, "Libro", precio, stock, isbn, autor)
-                    
+                        nuevo_libro = Libro(impuesto, len(Producto._lista_productos) + 1, nombre, precio, stock, isbn, autor)
+                        print("Libro agregado con éxito")
                     elif opcion == 3:
                         # Agregar un nuevo cuaderno
                         impuesto = float(input("Ingrese el impuesto: "))
+                        nombre = input("Ingrese Nombre de Cuaderno")
                         marca = input("Ingrese la marca: ")
                         precio = float(input("Ingrese el precio del cuaderno: "))
                         stock = int(input("Ingrese el stock del cuaderno: "))
-                        nuevo_cuaderno = Cuaderno(impuesto, len(Producto._lista_productos) + 1, "Cuaderno", precio, stock, marca)
-                    
+                        nuevo_cuaderno = Cuaderno(impuesto, len(Producto._lista_productos) + 1, nombre, precio, stock, marca)
+                        print("Cuaderno agregado con éxito")
                     elif opcion == 4:
                         codigo = int(input("Ingrese el código del producto a buscar: "))
                         productoBuscado = Producto.buscar_producto(codigo)
